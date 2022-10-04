@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: catalogservice
-          image: gcr.io/google-samples/microservices-demo/productcatalogservice
+          image: gcr.io/google-samples/microservices-demo/productcatalogservice:v0.4.0
           ports:
             - containerPort: 3550
           env:

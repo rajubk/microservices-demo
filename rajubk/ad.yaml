@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: adservice
-          image: gcr.io/google-samples/microservices-demo/emailservice
+          image: gcr.io/google-samples/microservices-demo/emailservice:v0.4.0
           ports:
             - containerPort: 9555
           env:
