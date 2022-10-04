@@ -43,10 +43,11 @@ kind: Service
 metadata:
   name: frontendservice
 spec:
-  type: ClusterIP
+  type: NodePort
   selector:
     app: frontendservice
   ports:
     - name: frontendservice
       port: 8080
       targetPort: 8080
+      nodePort: 8080
