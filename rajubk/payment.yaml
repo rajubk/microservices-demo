@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: paymentService
+  name: paymentservice
   labels:
-    app: paymentService
+    app: paymentservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: paymentService
+      app: paymentservice
   template:
     metadata:
       labels:
-        app: paymentService
+        app: paymentservice
     spec:
       containers:
-        - name: paymentService
+        - name: paymentservice
           image: gcr.io/google-samples/microservices-demo/paymentservice
           ports:
             - containerPort: 5051
@@ -27,12 +27,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: paymentService
+  name: paymentservice
 spec:
   type: ClusterIP
   selector:
-    app: paymentService
+    app: paymentservice
   ports:
-    - name: paymentService
+    - name: paymentservice
       port: 5051
       targetPort: 5051

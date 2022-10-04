@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: redisService
+  name: redisservice
   labels:
-    app: redisService
+    app: redisservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: redisService
+      app: redisservice
   template:
     metadata:
       labels:
-        app: redisService
+        app: redisservice
     spec:
       containers:
-        - name: redisService
+        - name: redisservice
           image: redis:alpine
           ports:
             - containerPort: 6379
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: redisService
+  name: redisservice
 spec:
   type: ClusterIP
   selector:
-    app: redisService
+    app: redisservice
   ports:
-    - name: redisService
+    - name: redisservice
       port: 6379
       targetPort: 6379

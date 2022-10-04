@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: recommendService
+  name: recommendservice
   labels:
-    app: recommendService
+    app: recommendservice
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: recommendService
+      app: recommendservice
   template:
     metadata:
       labels:
-        app: recommendService
+        app: recommendservice
     spec:
       containers:
-        - name: recommendService
+        - name: recommendservice
           image: gcr.io/google-samples/microservices-demo/recommendationservice
           ports:
             - containerPort: 8080
@@ -27,12 +27,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: recommendService
+  name: recommendservice
 spec:
   type: ClusterIP
   selector:
-    app: recommendService
+    app: recommendservice
   ports:
-    - name: recommendService
+    - name: recommendservice
       port: 8080
       targetPort: 8080
