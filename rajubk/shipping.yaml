@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shippingService
+  labels:
+    app: shippingService
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shippingService
+  template:
+    metadata:
+      labels:
+        app: shippingService
+    spec:
+      containers:
+        - name: shippingService
+          image: gcr.io/google-samples/microservices-demo/shippingservice
+          ports:
+            - containerPort: 5051
+          env:
+            - name: PORT
+              value: "5051"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shippingService
+spec:
+  type: ClusterIP
+  selector:
+    app: shippingService
+  ports:
+    - name: shippingService
+      port: 5051
+      targetPort: 5051
